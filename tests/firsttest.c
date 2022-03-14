@@ -2,6 +2,10 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+void bprintf(const char *format, va_list args)
+{
+}
+
 int _printf(const char *format, ...)
 {
 
@@ -11,4 +15,10 @@ int _printf(const char *format, ...)
 	bprintf(format, args);
 
 	va_end(args);
+}
+
+int main()
+{
+
+	_printf("print a char %c");
 }
