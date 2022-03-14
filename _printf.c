@@ -12,4 +12,4 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (format - 1)
 
-}	
+}
