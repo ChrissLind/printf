@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <limits.h>
 
 void bprintf(const char *format, va_list args)
 {
@@ -37,6 +38,8 @@ void bprintf(const char *format, va_list args)
 				}
 			break;
 			}
+		case 'r':
+			break;
 		case 'd':
 			break;		
 		case 'i':
@@ -57,10 +60,11 @@ int _printf(const char *format, ...)
 	bprintf(format, args);
 
 	va_end(args);
-}
 
+}
 int main()
 {
+
 
 	_printf("print a char %c \n", 'H');
 	_printf("print a string %s \n", "hello world");
@@ -68,6 +72,4 @@ int main()
 	_printf("print a decimal %d \n", 12);
 
 	return (0);
-
 }
-
