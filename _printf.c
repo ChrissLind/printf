@@ -2,14 +2,21 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+/**
+ * bprintf - Code for printf function.
+ * @format: String being passed.
+ * @args: Variable argument.
+ */
+
 void bprintf(const char *format, va_list args)
 {
 	int state = 0;
+
 	while (*format)
 	{
 	if (state == 0)
 	{
-		if(*format == '%')
+		if (*format == '%')
 		{
 			state = 1;
 		}
@@ -25,12 +32,15 @@ void bprintf(const char *format, va_list args)
 		case 'c':
 			{
 			char ch = va_arg(args, int);
+
 			_putchar(ch);
+
 			break;
 			}
 		case 's':
 			{
 			const char *s = va_arg(args, const char *);
+
 			for (; *s != '\0'; s++)
 				{
 				_putchar(*s);
@@ -38,7 +48,7 @@ void bprintf(const char *format, va_list args)
 			break;
 			}
 		case 'd':
-			break;		
+			break;
 		case 'i':
 			break;
 		}
@@ -48,6 +58,13 @@ void bprintf(const char *format, va_list args)
 }
 }
 
+/**
+ * _printf - Chris and Ferns beautiful printf that 100% works all the time,
+ * no need for questions.
+ *
+ * @format: String being passed.
+ *
+ */
 int _printf(const char *format, ...)
 {
 
@@ -59,7 +76,7 @@ int _printf(const char *format, ...)
 	va_end(args);
 }
 
-int main()
+int main(void)
 {
 
 	_printf("print a char %c \n", 'H');
