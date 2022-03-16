@@ -7,6 +7,7 @@
 #include <unistd.h>
 
 int _putchar(char c);
+void bprintf(const char *format, va_list args);
 
 
 #endif
