@@ -1,0 +1,29 @@
+NAME
+	_printf - prints a formatted string
+
+SYNOPSIS
+	int _printf(const char *format, ...);
+
+DESCRIPTION
+	This printf function produces its output according to a format. This
+	function writes to stdout. The output is formatted by scanning the string
+	for matching /conversion specifiers/, then replacing them with the arguments
+	after the format string.
+
+RETURN VALUE
+       _printf returns the number of characters it printed upon success, excluding the
+       null byte used as a string terminator. _printf returns a negative value upon
+       failure.
+
+CONVERSION SPECIFIERS
+	   _printf uses conversion specifiers to format the outputted string.
+	   These specifiers are:
+
+d, i
+These arguments convert int to signed decimal.
+
+c
+This argument prints single character to stdout in its stead.
+
+s
+The s argument is formatted to a string to print to stdout.
