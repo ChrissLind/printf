@@ -14,48 +14,48 @@ void bprintf(const char *format, va_list args)
 
 	while (*format)
 	{
-	if (state == 0)
-	{
-		if (*format == '%')
+		if (state == 0)
 		{
-			state = 1;
-		}
-		else
-		{
-			_putchar(*format);
-		}
-	}
-	else if (state == 1)
-		{
-		switch (*format)
-		{
-		case 'c':
+			if (*format == '%')
 			{
-			char ch = va_arg(args, int);
-
-			_putchar(ch);
-
-			break;
+				state = 1;
 			}
-		case 's':
+			else
 			{
-			const char *s = va_arg(args, const char *);
-
-			for (; *s != '\0'; s++)
-				{
-				_putchar(*s);
-				}
-			break;
+				_putchar(*format);
 			}
-		case 'd':
-			break;
-		case 'i':
-			break;
 		}
-		state = 0;
-	}
+		else if (state == 1)
+		{
+			switch (*format)
+			{
+				case 'c':
+					{
+						char ch = va_arg(args, int);
+
+						_putchar(ch);
+
+						break;
+					}
+				case 's':
+					{
+						const char *s = va_arg(args, const char *);
+
+						for (; *s != '\0'; s++)
+						{
+							_putchar(*s);
+						}
+						break;
+					}
+				case 'd':
+					break;
+				case 'i':
+					break;
+			}
+			state = 0;
+		}
 		format++;
-}
+	}
 }
 
 /**
