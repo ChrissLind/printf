@@ -19,7 +19,9 @@ as an input. The letter following is going to be read as a conversion specifier 
 is going to be printed.
 
 # compile
-![carbon(2)](https://user-images.githubusercontent.com/63136472/158617809-5a044705-52d9-4455-b0f2-3ce2fdc5eee4.png)
+
+![carbon](https://user-images.githubusercontent.com/63136472/158619017-f499847c-2e90-4d9c-a0a9-2893d14b841f.png)
+
 
 
 # testing
@@ -27,12 +29,16 @@ _printf was tested compiling all the C files and functions. Program was able to 
 
 
 # output 
-![carbon(1)](https://user-images.githubusercontent.com/63136472/158617645-723ea68a-36ea-486f-afd8-38bd9aed02ab.png)
+
+![carbon(2)](https://user-images.githubusercontent.com/63136472/158618950-5773e064-77e1-4104-9bfc-053f16e9f8e9.png)
 
 
-#bugs
+
+# bugs
+
 Program does not print decimals or integers at the moment.
 Program does not cover edge cases.
 
-#about
+# about
+
 _printf was implemented by Fernando Aponte & Chris Lind as part of a Holberton School group project.
