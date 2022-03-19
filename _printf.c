@@ -3,87 +3,47 @@
 #include <stdio.h>
 
 /**
- * bprintf - Code for printf function.
+ * printf - Code for printf function.
  * @format: String being passed.
  * @args: Variable argument.
  */
 
-void bprintf(const char *format, va_list args)
+int _printf(const char *format, ...)
 {
-	int state = 0;
+	int i, count = 0;
+	va_list args;
+	char mod[5] = {'c', 's', 'i', 'd', '\0'};
 
-	while (*format)
+	if (format == NULL)
+		return (-1);
+
+	va_start(args, format);
+
+	for (i = 0; format [i] != '\0'; i++)
 	{
-		if (state == 0)
+		if (format[i] == '%')
 		{
-			if (*format == '%')
+			if (mod_f(mod, format[i + 1]))
 			{
-				state = 1;
+				count += pickcase(format[i + 1], args);
+				i++;
+			}
+			else if (format[i] == '%' && format[i + 1] == '%')
+			{
+				count += _putchar('%');
+				i++;
 			}
 			else
 			{
-				_putchar(*format);
+				count += _putchar('%');
 			}
 		}
-		else if (state == 1)
+
+		else
 		{
-			switch (*format)
-			{
-				case 'c':
-					{
-						char ch = va_arg(args, int);
-
-						_putchar(ch);
-
-						break;
-					}
-				case 's':
-					{
-						const char *s = va_arg(args, const char *);
-
-						for (; *s != '\0'; s++)
-						{
-							_putchar(*s);
-						}
-						break;
-					}
-				case 'd':
-					break;
-				case 'i':
-					break;
-			}
-			state = 0;
+			count += (_putchar(format[i]));
 		}
-		format++;
 	}
-}
-
-/**
- * _printf - Chris and Ferns beautiful printf that 100% works all the time,
- * no need for questions.
- *
- * @format: String being passed.
- *
- */
-int _printf(const char *format, ...)
-{
-
-	va_list args;
-	va_start(args, format);
-
-	bprintf(format, args);
-
 	va_end(args);
-}
-
-int main(void)
-{
-
-	_printf("print a char %c \n", 'H');
-	_printf("print a string %s \n", "hello world");
-	_printf("print an integer %d \n", 10);
-	_printf("print a decimal %d \n", 12);
-
-	return (0);
-
+	return (count);
 }
