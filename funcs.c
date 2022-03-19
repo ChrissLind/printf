@@ -8,6 +8,7 @@
 int print_s(char *s)
 {
 	int i;
+
 	if (s == NULL)
 		s = "(nil)";
 
@@ -41,7 +42,7 @@ int print_d(int n, int count)
 	{
 		_putchar('-');
 		count++;
-		num = ( n * -1);
+		num = (n * -1);
 	}
 
 	else

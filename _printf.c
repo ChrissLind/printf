@@ -3,9 +3,9 @@
 #include <stdio.h>
 
 /**
- * printf - Code for printf function.
+ * _printf - Code for printf function.
  * @format: String being passed.
- * @args: Variable argument.
+ * Return: 0
  */
 
 int _printf(const char *format, ...)
@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	for (i = 0; format [i] != '\0'; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
